@@ -3,7 +3,7 @@ import { MainLinks, User } from '.'
 import { withRequireAuth } from '../../../modules/auth/application'
 
 const SideNav: React.FC = () => {
-    return <Navbar bg={'dark.6'} p="xs" width={{ base: 300 }}>
+    return <Navbar bg={'dark.6'} p="xs" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
         <Navbar.Section mt="xs">
             {/* brand */}
         </Navbar.Section>

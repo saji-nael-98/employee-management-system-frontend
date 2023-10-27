@@ -20,7 +20,7 @@ const useSignIn = () => {
                 token: data.token,
                 tokenType: "Bearer",
                 expiresIn: payload.exp,
-                authState: undefined,
+                authState: data,
             })) {
                 navigate('/')
             }
@@ -30,7 +30,6 @@ const useSignIn = () => {
         },
     })
     const formValuesHandler = (values: IForm) => {
-        console.log(values)
         mutate(values)
     }
     return [formValuesHandler] as const

@@ -1,7 +1,6 @@
 import { Group, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
 import {
-    IconAlertCircle,
-    IconGitPullRequest
+    IconHome
 } from '@tabler/icons-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -42,8 +41,7 @@ function MainLink({ icon, color, label, to }: MainLinkProps) {
 }
 
 const data = [
-    { icon: <IconGitPullRequest size="1rem" />, color: 'blue', label: 'Pull Requests', to: '/sadasd' },
-    { icon: <IconAlertCircle size="1rem" />, color: 'teal', label: 'Open Issues', to: '/ddd' },
+    { icon: <IconHome size="1rem" />, color: 'blue', label: 'Dashboard', to: '/' },
 ];
 
 export function MainLinks() {

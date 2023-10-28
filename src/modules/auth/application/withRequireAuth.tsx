@@ -1,11 +1,11 @@
 import { useIsAuthenticated } from 'react-auth-kit'
-const withRequireAuth = (Component: React.FC) => {
-    const NewComponent = () => {
+function withRequireAuth<T>(Component: React.FC<T>) {
+    const NewComponent = (props: T) => {
         const isAuthenticated = useIsAuthenticated()
         if (!isAuthenticated()) {
             return null
         }
-        return <Component />
+        return <Component {...props} />
     }
     return NewComponent
 }

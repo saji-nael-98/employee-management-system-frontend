@@ -1,9 +1,9 @@
-import { Group, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
+import { Group, Text, ThemeIcon, UnstyledButton, useMantineTheme } from '@mantine/core';
 import {
     IconHome
 } from '@tabler/icons-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 interface MainLinkProps {
     icon: React.ReactNode;
     color: string;
@@ -12,22 +12,28 @@ interface MainLinkProps {
 }
 
 function MainLink({ icon, color, label, to }: MainLinkProps) {
+    const theme = useMantineTheme()
     return (
         <UnstyledButton
             to={to}
-            component={Link}
+            component={NavLink}
             sx={(theme) => ({
                 display: 'block',
                 width: '100%',
                 padding: theme.spacing.xs,
                 borderRadius: theme.radius.sm,
                 color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-
                 '&:hover': {
                     backgroundColor:
                         theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
                 },
             })}
+            style={({ isActive }) => {
+                return {
+                    fontWeight: isActive ? "bold" : "",
+                    backgroundColor: isActive ? theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] : theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                };
+            }}
         >
             <Group>
                 <ThemeIcon color={color} variant="light">

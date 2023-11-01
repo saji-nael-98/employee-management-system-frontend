@@ -1,5 +1,6 @@
-import { createBrowserRouter, } from 'react-router-dom'
+import { createBrowserRouter, Outlet } from 'react-router-dom'
 import { RequireAuth } from 'react-auth-kit'
+import { employeeRoute } from './resources/Employee'
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -12,9 +13,12 @@ export const router = createBrowserRouter([
             {
                 path: '',
                 element: <RequireAuth loginPath={'/login'}>
-                    <div>sjai</div>
-                </RequireAuth>
-            }
+                    <Outlet />
+                </RequireAuth>,
+                children: [
+                    employeeRoute
+                ]
+            },
         ]
     }
 ])
